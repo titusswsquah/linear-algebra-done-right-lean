@@ -489,7 +489,6 @@ example (n : ℕ) : IsDirectSum (Axis (F := F) n) := by
       · intro i _ hik; exact (v i).2 k hik.symm
       · intro h; exact absurd (Finset.mem_univ k) h
     have h := congrArg (· k) huv
-    simp only at h
     rw [← hu, ← hv, h]
   · rw [(u k).2 j hjk, (v k).2 j hjk]
 

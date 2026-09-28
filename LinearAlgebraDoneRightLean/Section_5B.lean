@@ -580,7 +580,7 @@ def quotOp (T : V →ₗ[F] V) (U : Submodule F V) (hU : InvariantUnder T U) :
 theorem quotOp_mkQ (T : V →ₗ[F] V) {U : Submodule F V}
     (hU : InvariantUnder T U) (v : V) :
     quotOp T U hU (U.mkQ v) = U.mkQ (T v) := by
-  simp [quotOp, Submodule.mapQ_apply]
+  rfl
 
 theorem quotOp_pow_mkQ (T : V →ₗ[F] V) {U : Submodule F V}
     (hU : InvariantUnder T U) (n : ℕ) (v : V) :

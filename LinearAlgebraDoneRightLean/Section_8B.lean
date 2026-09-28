@@ -484,8 +484,8 @@ theorem exists_upperTriangular_restrict_maxGenEigenspace [Finite F V] (T : V →
   have hvec : ∀ x : maxGenEigenspace T μ, (T.restrict hT) x = N x + μ • x := by
     intro x
     apply Subtype.ext
-    simp only [LinearMap.restrict_coe_apply, hNdef, Submodule.coe_add, Submodule.coe_smul,
-      LinearMap.sub_apply, Module.algebraMap_end_apply]
+    show T (x : V) = (T - algebraMap F (Module.End F V) μ) (x : V) + μ • (x : V)
+    simp only [LinearMap.sub_apply, Module.algebraMap_end_apply]
     abel
   by_cases hnt : Nontrivial (maxGenEigenspace T μ)
   · obtain ⟨n, e, he, hUT, hdiag⟩ := exists_strictUpperTriangular_of_nilpotent N hNnil

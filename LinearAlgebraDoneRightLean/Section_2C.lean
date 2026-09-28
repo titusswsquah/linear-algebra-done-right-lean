@@ -514,7 +514,7 @@ theorem finrank_sup_add_finrank_inf_eq :
       have hsum_V : ∑ p, a p • (v p : V) = x₁ := by
         have h := congrArg (Subtype.val (p := fun x => x ∈ V₁)) ha
         rw [Submodule.coe_sum] at h
-        convert h using 1
+        convert h using 2; simp
       rw [← hsum_V, Fin.sum_univ_add]
       congr 1
       apply Finset.sum_congr rfl
@@ -525,7 +525,7 @@ theorem finrank_sup_add_finrank_inf_eq :
       have hsum_V : ∑ p, b p • (w p : V) = x₂ := by
         have h := congrArg (Subtype.val (p := fun x => x ∈ V₂)) hb
         rw [Submodule.coe_sum] at h
-        convert h using 1
+        convert h using 2; simp
       rw [← hsum_V, Fin.sum_univ_add]
       congr 1
       apply Finset.sum_congr rfl
@@ -607,7 +607,7 @@ theorem finrank_sup_add_finrank_inf_eq :
       have h := congrArg
         (Subtype.val (p := fun x => x ∈ V₁ ⊓ V₂)) he
       rw [Submodule.coe_sum] at h
-      convert h using 1
+      convert h using 2; simp
     have hw_li := hw_basis.1
     rw [Fintype.linearIndependent_iff] at hw_li
     -- Build cw : Fin (m+k) → F via Fin.append, so its value at each block

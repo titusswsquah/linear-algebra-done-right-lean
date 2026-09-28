@@ -447,6 +447,7 @@ theorem exists_isCompl [Module.Finite F V] (U : Submodule F V) :
       have := congrArg Subtype.val ha
       rw [Submodule.coe_sum] at this
       convert this using 1
+      simp only [Submodule.coe_smul, uV]
     rw [Submodule.mem_span_range_iff_exists_fun] at hvW
     obtain ⟨b, hb⟩ := hvW
     -- {lit}`c` combines the two expansions into a vanishing relation on the

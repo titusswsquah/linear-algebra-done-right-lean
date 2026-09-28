@@ -585,7 +585,7 @@ private theorem rowRank_le_columnRank {m n : ℕ}
     -- Span of the rows of R has dimension ≤ c.
     have h_R_le : finrank F (Submodule.span F (Set.range (row R))) ≤ c := by
       have := finrank_range_le_card (R := F) (row R)
-      simpa using this
+      simpa [Set.finrank] using this
     calc rowRank A
         ≤ finrank F (Submodule.span F (Set.range (row R))) :=
           Submodule.finrank_mono h_sub

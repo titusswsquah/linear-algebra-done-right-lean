@@ -304,8 +304,9 @@ example :
   -- (D ∘ₗ multByXSq) X = D (X² · X) = D X³
   have hRHS : (Polynomial.derivative ∘ₗ multByXSq) Polynomial.X =
       Polynomial.derivative ((Polynomial.X : Polynomial ℝ) ^ 3) := by
-    change Polynomial.derivative (Polynomial.X ^ 2 * Polynomial.X) = _
-    rfl
+    have : (Polynomial.derivative ∘ₗ multByXSq) Polynomial.X =
+        Polynomial.derivative (Polynomial.X ^ 2 * Polynomial.X : Polynomial ℝ) := rfl
+    rw [this, ← pow_succ]
   rw [hLHS, hRHS] at hX
   -- Compare coefficients of degree 2: coeff X² 2 = 1, coeff (D X³) 2 = 3.
   have hc := congrArg (Polynomial.coeff · 2) hX
