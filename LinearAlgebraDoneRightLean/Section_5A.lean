@@ -745,7 +745,6 @@ theorem exercise_5A_17 {V : Type*} [AddCommGroup V] [Module ℝ V]
       HasEigenvalue (complexification_map T) (γ : ℂ)) := by
   sorry
 
-open scoped ComplexConjugate in
 open LADR.Section_1B (Complexification exercise_1B_8) in
 open LADR.Section_3B (complexification_map) in
 /-- 5A.18 -/
@@ -753,7 +752,7 @@ theorem exercise_5A_18 {V : Type*} [AddCommGroup V] [Module ℝ V]
     (T : V →ₗ[ℝ] V) (lam : ℂ) :
     letI : Module ℂ (Complexification V) := exercise_1B_8 V
     (HasEigenvalue (complexification_map T) lam ↔
-      HasEigenvalue (complexification_map T) (conj lam)) := by
+      HasEigenvalue (complexification_map T) ((starRingEnd ℂ) lam)) := by
   sorry
 
 /-- 5A.19 -/
