@@ -89,7 +89,7 @@ theorem setOrthogonal_singleton_235 :
   rw [SetLike.mem_coe, mem_setOrthogonal]
   simp only [Set.mem_singleton_iff, forall_eq, plane235, Set.mem_setOf_eq]
   rw [show ⟪(!₂[2, 3, 5] : EuclideanSpace ℝ (Fin 3)), v⟫_ℝ = 2 * v 0 + 3 * v 1 + 5 * v 2 by
-    simp [PiLp.inner_apply, Fin.sum_univ_three, real_inner_eq_re_inner ℝ]; ring]
+    simp [PiLp.inner_apply, Fin.sum_univ_three]; ring]
 
 /-- The line {lit}`{(2t, 3t, 5t)}` is {lit}`span((2, 3, 5))`. -/
 theorem line235_eq_span : line235 = (ℝ ∙ (!₂[2, 3, 5] : EuclideanSpace ℝ (Fin 3)) : Set _) := by
